@@ -1,0 +1,180 @@
+
+    <div class="modal-header" >
+      <h4 class="modal-title" id="modal-basic-title">Update Employee Details</h4>
+      <button type="button" id="closeBtn" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="userForm" (ngSubmit)="Edit(userForm.value)">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" placeholder="Enter Name"
+           formControlName="name"
+           [class.is-invalid]="!userForm.get('name').valid && userForm.get('name').touched"
+           [class.is-valid]="userForm.get('name').valid"
+          >
+          <div class="alert alert-danger"
+            *ngIf="userForm.get('name').hasError('required')
+              && userForm.get('name').touched">
+              Name is required*
+        </div> 
+        </div>
+        <div class="form-group">
+          <label for="dob">DOB</label>
+          <input
+          formControlName="dob"
+            class="form-control"
+            placeholder="Select DOB"
+            name="dob"
+            (click)="s.toggle()"
+            ngbDatepicker
+            #s="ngbDatepicker"
+            autocomplete="off"
+            [class.is-invalid]="!userForm.get('dob').valid && userForm.get('dob').touched"
+              [class.is-valid]="userForm.get('dob').valid"
+          />
+          <div class="alert alert-danger"
+          *ngIf="userForm.get('dob').hasError('required')
+              && userForm.get('dob').touched">
+              DOB is required*
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="mobileNo">Mobile No</label>
+          <input type="text" class="form-control" placeholder="Enter Mobile No"
+              formControlName="mobileNo"
+              [class.is-invalid]="!userForm.get('mobileNo').valid && userForm.get('mobileNo').touched"
+              [class.is-valid]="userForm.get('mobileNo').valid"
+          >
+          <div class="alert alert-danger"
+          *ngIf="userForm.get('mobileNo').hasError('required')
+              && userForm.get('mobileNo').touched">
+              Mobile No is required*
+          </div>
+          <div class="alert alert-danger"
+          *ngIf="userForm.get('mobileNo').hasError('pattern')
+              && userForm.get('mobileNo').touched">
+              Mobile No is Invalid
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="doj">DOJ</label>
+          <input
+          formControlName="doj"
+            class="form-control"
+            placeholder="Select DOJ"
+            name="doj"
+            (click)="s1.toggle()"
+            ngbDatepicker
+            #s1="ngbDatepicker"
+            autocomplete="off"
+            [class.is-invalid]="!userForm.get('doj').valid && userForm.get('doj').touched"
+              [class.is-valid]="userForm.get('doj').valid"
+          />
+          <div class="alert alert-danger"
+          *ngIf="userForm.get('doj').hasError('required')
+              && userForm.get('doj').touched">
+              DOJ is required*
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="experienceYear">No of Experience Year</label>
+          <input type="text" class="form-control" placeholder="Enter No of Experience Year"
+           formControlName="experienceYear"
+           [class.is-invalid]="!userForm.get('experienceYear').valid && userForm.get('experienceYear').touched"
+           [class.is-valid]="userForm.get('experienceYear').valid"
+          >
+          <div class="alert alert-danger"
+            *ngIf="userForm.get('experienceYear').hasError('required')
+              && userForm.get('experienceYear').touched">
+              No of Experience Year is required*
+          </div>
+          <div class="alert alert-danger"
+          *ngIf="userForm.get('experienceYear').hasError('pattern')
+              && userForm.get('experienceYear').touched">
+              Experience Year is Invalid
+          </div> 
+        </div>
+        <div class="form-group">
+          <label for="email">Email Id</label>
+          <input type="text" class="form-control" placeholder="Enter Email"
+           formControlName="email"
+           [class.is-invalid]="!userForm.get('email').valid && userForm.get('email').touched"
+           [class.is-valid]="userForm.get('email').valid"
+          >
+          <div class="alert alert-danger"
+          *ngIf="userForm.get('email').hasError('required')
+            && userForm.get('email').touched">
+            Email is required*
+          </div>
+          <div class="alert alert-danger"
+          *ngIf="userForm.get('email').hasError('pattern')
+            && userForm.get('email').touched">
+            Email is Invalid
+          </div>
+        </div> 
+        <div class="form-group">
+          <label for="projectName">Project Name</label>
+          <input type="text" class="form-control" placeholder="Enter Project Name"
+           formControlName="projectName"
+           [class.is-invalid]="!userForm.get('projectName').valid && userForm.get('projectName').touched"
+           [class.is-valid]="userForm.get('projectName').valid"
+          >
+          <div class="alert alert-danger"
+            *ngIf="userForm.get('projectName').hasError('required')
+              && userForm.get('projectName').touched">
+              Project Name is required*
+        </div> 
+        </div>
+        <div class="form-group">
+          <label for="businessUnit">Business Unit</label>
+          <input type="text" class="form-control" placeholder="Enter Business Unit"
+           formControlName="businessUnit"
+           [class.is-invalid]="!userForm.get('businessUnit').valid && userForm.get('businessUnit').touched"
+           [class.is-valid]="userForm.get('businessUnit').valid"
+          >
+          <div class="alert alert-danger"
+            *ngIf="userForm.get('businessUnit').hasError('required')
+              && userForm.get('businessUnit').touched">
+              Business Unit is required*
+        </div> 
+        </div>
+        <div class="form-group">
+          <label for="projectManger">Project Manger</label>
+          <input type="text" class="form-control" placeholder="Enter Project Manger"
+           formControlName="projectManger"
+           [class.is-invalid]="!userForm.get('projectManger').valid && userForm.get('projectManger').touched"
+           [class.is-valid]="userForm.get('projectManger').valid"
+          >
+          <div class="alert alert-danger"
+            *ngIf="userForm.get('projectManger').hasError('required')
+              && userForm.get('projectManger').touched">
+              Project Manger is required*
+        </div> 
+        </div>
+        <div class="form-group">
+          <label for="location">Location</label>
+          <input type="text" class="form-control" placeholder="Enter Location"
+           formControlName="location"
+           [class.is-invalid]="!userForm.get('location').valid && userForm.get('location').touched"
+           [class.is-valid]="userForm.get('location').valid"
+          >
+          <div class="alert alert-danger"
+            *ngIf="userForm.get('location').hasError('required')
+              && userForm.get('location').touched">
+              Location is required*
+        </div> 
+        </div>
+        <div class="modal-footer">
+        <button type="submit" data-dismiss="modal"  class="btn btn-outline-dark" 
+        [disabled]="!userForm.valid"
+            >submit</button>
+            
+        </div>
+      </form>
+    </div>
+    <!-- <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div> -->
+

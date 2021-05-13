@@ -1,0 +1,42 @@
+<div class="container col-4">
+	<form [formGroup]="userForm" (ngSubmit)="loginUser(userForm.value)">
+	<div class="row text-white">
+		 <h1><i class="fa fa-lock " aria-hidden="true"></i> Login</h1>
+        </div><br /><br />      
+		<div formGroupName="userLogin">
+			<div class="input-group">
+				<input type="text"  class="form-control" placeholder="Email Id"
+				[class.is-valid]="userForm.get('userLogin').get('emailId').valid"
+				[class.is-invalid]="!userForm.get('userLogin').get('emailId').valid && submitted"
+				formControlName="emailId"
+				>
+			</div>
+            <div class="alert alert-danger"
+                *ngIf="userForm.get('userLogin').get('emailId').hasError('required')
+                    && userForm.get('userLogin').get('emailId').touched">
+                    Email is required*
+                </div>
+                <div class="alert alert-danger"
+                *ngIf="userForm.get('userLogin').get('emailId').hasError('pattern')
+                    && userForm.get('userLogin').get('emailId').touched">
+                    Email is Invalid
+                </div>
+			<br />
+			<div class="input-group">
+				<input type="password"  class="form-control" placeholder="Password"
+				[class.is-valid]="userForm.get('userLogin').get('password').valid"
+				[class.is-invalid]="!userForm.get('userLogin').get('password').valid && submitted"
+				formControlName="password"
+				>
+			</div>
+            <div class="alert alert-danger"
+                *ngIf="userForm.get('userLogin').get('password').hasError('required')
+                    && userForm.get('userLogin').get('password').touched">
+                    Password is required*
+                </div>
+			<br />
+			</div> 
+        <button type="submit" [disabled]="!userForm.valid" class="btn btn-info"><span class="glyphicon glyphicon-off"></span> Login</button>
+		<!-- <div  class="text-danger" style="text-transform: capitalize;" *ngIf="showErrorMessage">{{showErrorMessage}}</div>     -->
+	</form>
+	</div>
